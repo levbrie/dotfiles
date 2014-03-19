@@ -1,0 +1,17 @@
+" Set the tag file search order (for ctags)
+set tags=./tags;
+
+" Remaps
+imap <c-l> <space>=><space>
+:imap kk <Esc>
+inoremap <c-k> <Esc>
+
+augroup vimrcEx
+  " Clear all autocmds in the group
+  autocmd!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \ exe "normal g`\"" |
+    \ endif
+augroup END
