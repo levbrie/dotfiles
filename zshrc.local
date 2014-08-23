@@ -1,2 +1,13 @@
 # init z https://github.com/rupa/z
 . ~/z/z.sh
+# export PATH=~/z/z.sh:$PATH
+# keep tons of history
+export HISTSIZE=10000
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=100000
+export SAVEHIST=10000
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+
+export PATH=/usr/local/bin:$PATH
