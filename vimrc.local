@@ -22,3 +22,9 @@ function! ToggleEndChar(charToMatch)
 endfunction
 
 nnoremap ;; :call ToggleEndChar(';')<CR>
+
+" Turn on support for 256-color terminals
+let &t_Co=256
+
+set background=dark
+colorscheme Tomorrow-Night-Eighties
