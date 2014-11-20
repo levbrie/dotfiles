@@ -12,6 +12,7 @@ setopt incappendhistory
 
 export PATH=/usr/local/bin:$PATH
 export PATH=~/bin:$PATH
+export EDITOR=vim
 
 export GOPATH=$HOME/git/golang:$HOME/git/learning/goeg
 export PATH=$PATH:$GOPATH/bin
