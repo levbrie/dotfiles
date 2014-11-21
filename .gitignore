@@ -1,0 +1,23 @@
+.env
+
+# Logs
+logs
+*.log
+
+# webstorm
+.idea
+
+# sublime
+.sublime-project
+
+
+# ignore Vim and Emacs swap files, and apple .DS_Store
+*.swp
+*~
+.project
+.DS_Store
+
+# ignore redis snapshots
+dump.rdb
+*.rdb
+
