@@ -1,6 +1,7 @@
 " Turn on support for 256-color terminals
 let &t_Co=256
 " i want mapleader to be space, not comma. let mapleader=','
+filetype plugin on
 set relativenumber
 set background=dark
 colorscheme Tomorrow-Night-Eighties
@@ -10,6 +11,10 @@ set tags=./tags;
 set undofile "undo files even after writing and closing (saved in a *~ file)
 set smartindent "enable smart indenting of files
 set hlsearch " highlight our search results
+"lower leader key timout to get rid of slight lag
+set timeoutlen=500
+"Write the old file out when switching between files.
+set autowrite
 
 " Remaps
 imap <c-l> <space>=><space>
@@ -74,9 +79,23 @@ map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>f <Plug>(easymotion-f)
 
+" Map leader s to save
+map <Leader>s :w<CR>
+
 " Tabular mappings for alignment using a= in normal or visual mode to align equals signs
 
 nmap <Leader>a= :Tab/=<CR>
 vmap <Leader>a= :Tab/=<CR>
 nmap <Leader>a: :Tab/:\zs<CR>
 vmap <Leader>a: :Tab/:\zs<CR>
+
+" use vim-flavored markdown for github-flavored markdown by default
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+" ultisnips snippets
+let g:UltiSnipsExpandTrigger="<Leader>c"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
