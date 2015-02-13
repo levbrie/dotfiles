@@ -1,6 +1,8 @@
 # init z https://github.com/rupa/z
 . ~/z/z.sh
 # export PATH=~/z/z.sh:$PATH
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
 # keep tons of history
 export HISTSIZE=10000
 export HISTFILE=~/.zsh_history
