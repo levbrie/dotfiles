@@ -73,3 +73,10 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>f <Plug>(easymotion-f)
+
+" Tabular mappings for alignment using a= in normal or visual mode to align equals signs
+
+nmap <Leader>a= :Tab/=<CR>
+vmap <Leader>a= :Tab/=<CR>
+nmap <Leader>a: :Tab/:\zs<CR>
+vmap <Leader>a: :Tab/:\zs<CR>
