@@ -1,10 +1,27 @@
+" Turn on support for 256-color terminals
+let &t_Co=256
+" i want mapleader to be space, not comma. let mapleader=','
+set relativenumber
+set background=dark
+colorscheme Tomorrow-Night-Eighties
 " Set the tag file search order (for ctags)
 set tags=./tags;
+" set wildmode "autocompletion for commands similar to zsh
+set undofile "undo files even after writing and closing (saved in a *~ file)
+set smartindent "enable smart indenting of files
+set hlsearch " highlight our search results
 
 " Remaps
 imap <c-l> <space>=><space>
 :imap kk <Esc>
 inoremap <c-k> <Esc>
+
+" make regexs work the way they do in other langs, and not like literal
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -23,10 +40,13 @@ endfunction
 
 nnoremap ;; :call ToggleEndChar(';')<CR>
 
-" Turn on support for 256-color terminals
-let &t_Co=256
+augroup JavaScriptCmds
+  " remove autocommands previously set in javascript group
+  autocmd!
+  " run file in node, buffer so only in js (current buffer)
+  autocmd Filetype javascript nnoremap <buffer> <leader>r :!node %<cr>
+  " create a comment for javascript with leader c only good for current buffer
+  autocmd Filetype javascript nnoremap <buffer> <leader>c I//<esc>
+  autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup END
 
-set background=dark
-colorscheme Tomorrow-Night-Eighties
-
-set relativenumber
