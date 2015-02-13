@@ -1,5 +1,7 @@
-.env
+gitlist.txt
+.gitconfig
 
+.env
 # Logs
 logs
 *.log
