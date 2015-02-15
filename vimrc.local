@@ -17,9 +17,9 @@ set timeoutlen=500
 set autowrite
 
 " Remaps
-imap <c-l> <space>=><space>
+" imap <c-l> <space>=><space>
 :imap kk <Esc>
-inoremap <c-k> <Esc>
+" inoremap <c-k> <Esc>
 
 " make regexs work the way they do in other langs, and not like literal
 nnoremap / /\v
@@ -89,13 +89,48 @@ vmap <Leader>a= :Tab/=<CR>
 nmap <Leader>a: :Tab/:\zs<CR>
 vmap <Leader>a: :Tab/:\zs<CR>
 
+" force Markdown for *.md files
+" see vim-markdown for why: https://github.com/tpope/vim-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " use vim-flavored markdown for github-flavored markdown by default
 augroup markdown
   au!
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-" ultisnips snippets
-let g:UltiSnipsExpandTrigger="<Leader>c"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger       ="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Enable tabbing through list of results
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+
+" Expand snippet or return
+let g:ulti_expand_res = 0
+function! Ulti_ExpandOrEnter()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res
+        return ''
+    else
+        return "\<return>"
+endfunction
+
+" Set <space> as primary trigger
+inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
+
