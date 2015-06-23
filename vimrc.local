@@ -2,25 +2,25 @@
 let &t_Co=256
 " i want mapleader to be space, not comma. let mapleader=','
 filetype plugin on
-set relativenumber
-set background=dark
-colorscheme Tomorrow-Night-Eighties
-" Set the tag file search order (for ctags)
-set tags=./tags;
-" set wildmode "autocompletion for commands similar to zsh
-set undofile "undo files even after writing and closing (saved in a *~ file)
-set smartindent "enable smart indenting of files
-set hlsearch " highlight our search results
-"lower leader key timout to get rid of slight lag
-set timeoutlen=500
-"Write the old file out when switching between files.
-set autowrite
 
-" Remaps
-" imap <c-l> <space>=><space>
+" =================== General Config ======================
+
+set relativenumber      " relative line numbers
+set tags=./tags;        " Set tag file search order (for ctags)
+set undofile            " undo files even after writing and closing (saved in a *~ file)
+set smartindent         " enable smart indenting of files
+set hlsearch            " highlight our search results
+set timeoutlen=500      " lower leader key timout to get rid of slight lag
+set autowrite           " Write the old file out when switching between files.
+set autoread            " reload files changed outside of vim
+
+" ================== Color Theme =========================
+
+set background=dark                  " default to dark bg
+colorscheme Tomorrow-Night-Eighties  " theme
+
+" ================== Key Remappings =====================
 :imap kk <Esc>
-" inoremap <c-k> <Esc>
-
 " make regexs work the way they do in other langs, and not like literal
 nnoremap / /\v
 vnoremap / /\v
