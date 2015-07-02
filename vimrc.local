@@ -81,6 +81,11 @@ map <Leader>f <Plug>(easymotion-f)
 
 " Map leader s to save
 map <Leader>s :w<CR>
+" enable vim to paste properly with leader-p
+" turn paste on, open new line, from * (system clipboard register) paste, then
+" turn paste off, carriage return - note that the `]` after the * says to
+" start pasting at the current level of indentation
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Tabular mappings for alignment using a= in normal or visual mode to align equals signs
 
@@ -88,6 +93,12 @@ nmap <Leader>a= :Tab/=<CR>
 vmap <Leader>a= :Tab/=<CR>
 nmap <Leader>a: :Tab/:\zs<CR>
 vmap <Leader>a: :Tab/:\zs<CR>
+
+augroup PythonCmds
+  " assume python is using invoke and run invoke test with leader t to
+  " run tests from python files
+  autocmd Filetype python nnoremap <buffer> <leader>t :!invoke test<cr>
+augroup END
 
 " force Markdown for *.md files
 " see vim-markdown for why: https://github.com/tpope/vim-markdown
