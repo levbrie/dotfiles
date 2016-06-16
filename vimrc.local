@@ -17,7 +17,10 @@ set autoread            " reload files changed outside of vim
 " ================== Color Theme =========================
 
 set background=dark                  " default to dark bg
-colorscheme Tomorrow-Night-Eighties  " theme
+" colorscheme Tomorrow-Night-Eighties  " theme
+" colorscheme gotham256
+" colorscheme onedark
+colorscheme OceanicNext
 
 " ================== Key Remappings =====================
 :imap kk <Esc>
@@ -54,6 +57,9 @@ augroup JavaScriptCmds
   autocmd Filetype javascript nnoremap <buffer> <leader>c I//<esc>
   autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
+
+" use jsx syntax in .js files
+autocmd Filetype javascript let g:jsx_ext_required = 0
 
 " vim-easymotion mappings
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
