@@ -1,29 +1,45 @@
-Bundle 'gcmt/wildfire.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'sirver/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'fatih/vim-go'
-Bundle 'chriskempson/base16-vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'godlygeek/tabular'
-Bundle 'moll/vim-node'
-Bundle 'tpope/vim-repeat'
-Bundle 'bling/vim-bufferline'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'bling/vim-airline'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'suan/vim-instant-markdown'
-Bundle 'jtratner/vim-flavored-markdown'
-Bundle 'groenewege/vim-less'
-Bundle 'Rykka/InstantRst'
-Bundle 'Raimondi/delimitMate'
-Bundle 'mxw/vim-jsx'
-Bundle 'botandrose/vim-testkey'
-Bundle 'whatyouhide/vim-gotham'
-Bundle 'pangloss/vim-javascript'
-Bundle 'yosiat/oceanic-next-vim'
+
+"" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+" - standard dir: call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
+
+" Make sure you use single quotes
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+Plug 'gcmt/wildfire.vim'
+Plug 'mattn/emmet-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+Plug 'fatih/vim-go'
+Plug 'chriskempson/base16-vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'godlygeek/tabular'
+Plug 'moll/vim-node'
+Plug 'tpope/vim-repeat'
+Plug 'bling/vim-bufferline'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'Valloric/YouCompleteMe'
+Plug 'marijnh/tern_for_vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'suan/vim-instant-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'groenewege/vim-less'
+Plug 'Rykka/InstantRst'
+Plug 'Raimondi/delimitMate'
+Plug 'mxw/vim-jsx'
+Plug 'botandrose/vim-testkey'
+Plug 'whatyouhide/vim-gotham'
+Plug 'pangloss/vim-javascript'
+Plug 'yosiat/oceanic-next-vim'
+Plug 'junegunn/fzf'
+
+" Initialize plugin system
+call plug#end()
