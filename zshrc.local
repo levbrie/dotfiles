@@ -43,6 +43,9 @@ export ZSH=~/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="sorin"
 
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -125,7 +128,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/sbin:$PATH"
 
 # load iTerm2 shell integration at login time
-source ~/.iterm2_shell_integration.zsh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # IPython Notebook Spark integration, added by aws.sh
 export SPARK_HOME='/usr/local/Cellar/apache-spark/1.4.1'
@@ -134,5 +137,9 @@ export PYSPARK_SUBMIT_ARGS='--master local[2] pyspark-shell'
 
 
 # added by Anaconda3 5.2.0 installer
-export PATH="/anaconda3/bin:$PATH"
-. /anaconda3/etc/profile.d/conda.sh
+export PATH="/Users/lev/anaconda3/bin:$PATH"
+. /Users/lev/anaconda3/etc/profile.d/conda.sh
+
+# add docker autocompletion
+# fpath=(~/.zsh/completion $fpath)
+# autoload -Uz compinit && compinit -i
