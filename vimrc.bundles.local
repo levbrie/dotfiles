@@ -3,43 +3,51 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 " - standard dir: call plug#begin('~/.vim/plugged')
-call plug#begin('~/.vim/bundle')
+" old: call plug#begin('~/.vim/bundle')
+call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 Plug 'gcmt/wildfire.vim'
-Plug 'mattn/emmet-vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
 
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
+Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
-Plug 'chriskempson/base16-vim'
+Plug 'mattn/emmet-vim'
+Plug 'mxw/vim-jsx'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'moll/vim-node'
+Plug 'marijnh/tern_for_vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'prettier/vim-prettier'
+Plug 'vim-syntastic/syntastic'
+
+Plug 'suan/vim-instant-markdown'
+Plug 'Rykka/InstantRst'
+
+" install fzf and fzf.vim vim plugin
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+
 Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
-Plug 'moll/vim-node'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Raimondi/delimitMate'
+Plug 'botandrose/vim-testkey'
+
 Plug 'bling/vim-bufferline'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe'
-Plug 'marijnh/tern_for_vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'suan/vim-instant-markdown'
-Plug 'jtratner/vim-flavored-markdown'
-Plug 'groenewege/vim-less'
-Plug 'Rykka/InstantRst'
-Plug 'Raimondi/delimitMate'
-Plug 'mxw/vim-jsx'
-Plug 'botandrose/vim-testkey'
+Plug 'vim-airline/vim-airline'
+
+Plug 'chriskempson/base16-vim'
 Plug 'whatyouhide/vim-gotham'
-Plug 'pangloss/vim-javascript'
 Plug 'yosiat/oceanic-next-vim'
-Plug 'junegunn/fzf'
+Plug 'joshdick/onedark.vim'
 
 " Initialize plugin system
 call plug#end()
