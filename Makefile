@@ -18,3 +18,6 @@ bash: stow-linux
 git: stow-linux
 	stow git 
 
+vim: stow-linux
+	stow vim 
+
